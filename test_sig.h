@@ -14,7 +14,7 @@ public:
     QGraphicsSvgItem *getItem1();
     public slots:
 
-    // public Q_SLOT:
+    public slots:
     void setHighlight(bool);
 
 private:

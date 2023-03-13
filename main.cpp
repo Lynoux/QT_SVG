@@ -1,4 +1,5 @@
 #include "test_sig.h"
+#include "mainwindow.h"
 
 #include <QApplication>
 #include <QtSvg/QSvgRenderer>
@@ -31,34 +32,48 @@
 
 
 
-/* Test de surlignage fonctionnel */
+///* Test de surlignage fonctionnel */
+
+//int main(int argc, char *argv[])
+//{
+//    QApplication a(argc, argv);
+//    // MainWindow mainW = new MainWindow();
+//    Test_sig *svg_layers= new Test_sig(); // Création objet contenant les couches SVG
+
+//    QCheckBox *PB=new QCheckBox(); // Bouton validation
+
+//    PB->setChecked(true); // Initialisation à vrai
+
+//    QGraphicsScene scene; // Scène contenant des Widgets et des Item
+
+//    scene.addWidget(PB); // Ajout du Widget bouton validation
+//    scene.addItem (svg_layers->getItem()); // Ajout de l'item pour le SVG original
+//    scene.addItem (svg_layers->getItem1()); // Ajout de l'item pour la surbillance
+
+//    QGraphicsView view; // Création d'une vue
+
+//    view.setScene (&scene); // On met la scene dans la vue
+
+//    /* Définition d'une connexion entre le bouton validation et l'objet contenant les SVG. Lien entre l'état bouton une fois cliqué et la méthode setHighlight (booléen obligatoire dans les deux méthode) */
+//     QObject::connect(PB, SIGNAL( clicked(bool) ), svg_layers, SLOT( setHighlight(bool) ));
+
+
+//    view.show (); // Affichage de la vue
+
+//    return a.exec();
+
+//}
+
+
+/* Test de surlignage avec QWidget et QLayout */
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    // MainWindow mainW = new MainWindow();
-    Test_sig *svg_layers= new Test_sig(); // Création objet contenant les couches SVG
-
-    QCheckBox *PB=new QCheckBox(); // Bouton validation
-
-    PB->setChecked(true); // Initialisation à vrai
-
-    QGraphicsScene scene; // Scène contenant des Widgets et des Item
-
-    scene.addWidget(PB); // Ajout du Widget bouton validation
-    scene.addItem (svg_layers->getItem()); // Ajout de l'item pour le SVG original
-    scene.addItem (svg_layers->getItem1()); // Ajout de l'item pour la surbillance
-
-    QGraphicsView view; // Création d'une vue
-
-    view.setScene (&scene); // On met la scene dans la vue
-
-    /* Définition d'une connexion entre le bouton validation et l'objet contenant les SVG. Lien entre l'état bouton une fois cliqué et la méthode setHighlight (booléen obligatoire dans les deux méthode) */
-     QObject::connect(PB, SIGNAL( clicked(bool) ), svg_layers, SLOT( setHighlight(bool) ));
+    MainWindow *mainW = new MainWindow;
 
 
-    view.show (); // Affichage de la vue
-
+    mainW->show();
     return a.exec();
 
 }
